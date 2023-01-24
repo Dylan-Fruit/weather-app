@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   max-height: 100vh;
+  font-family: "Open Sans", sans-serif;
 }
 
 .container {
@@ -21,6 +22,22 @@
 .weather-top-area {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 114px;
+}
+.weather-top-area-city {
+  font-size: 40px;
+  color: #fff;
+  font-weight: bold;
+}
+.weather-top-area-temp {
+  color: #fff;
+  font-size: 55px;
+}
+.weather-top-area-description {
+  color: #fff;
+  font-size: 22px;
 }
 
 /*# sourceMappingURL=style.css.map */

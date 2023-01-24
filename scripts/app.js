@@ -1,35 +1,20 @@
+import backgroundImg from "./utils/backgroundImg.js";
+
 const apikey = "6df86b310800c41f880ef52cfa61a84e";
 const weatherAppBg = document.querySelector(".weather");
+const cloudyBg = "./assets/cloudybg.jpg";
+const clearSky = "./assets/clearsky.png";
+const clearSkyNight = "./assets/clearskynight.png";
+const cloudyNightBg = "./assets/cloudynight.png";
 const weatherAppCity = document.querySelector(".weather-top-area-city");
 const weatherAppTemp = document.querySelector(".weather-top-area-temp");
-const cloudyBg = "./assets/cloudybg.jpg";
-const cloudyNightBg = "./assets/cloudynight.jpg";
+const weatherAppDesc = document.querySelector(".weather-top-area-description");
 const search = document.querySelector(".weather-search-form-input");
 const form = document.querySelector(".weather-search-form");
 
 weatherAppBg.style.backgroundSize = "cover";
 
-const backgroundImg = ({ description, icon }) => {
-  switch (description) {
-    case "couvert":
-      switch (icon) {
-        case "04n":
-          weatherAppBg.style.background = `url(${cloudyNightBg}) no-repeat`;
-          break;
-        case "04d":
-          weatherAppBg.style.weatherAppBg.style.background = `url(${cloudyBg}) no-repeat`;
-          break;
-        default:
-          weatherAppBg.style.background = "#000";
-      }
-      break;
-    case "légère pluie":
-      weatherAppBg.style.background = `url(${cloudyBg}) no-repeat`;
-      break;
-    default:
-      weatherAppBg.style.background = "none";
-  }
-};
+// fonction BackgroundImg avec un switch qui change le background en fonction du temps et du jour ou de la nuit
 
 const apiCall = (city) => {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric&lang=fr`;
@@ -38,15 +23,27 @@ const apiCall = (city) => {
     .then((res) => res.json())
     .then(({ name, main: { temp }, weather: [{ description, icon }] }) => {
       weatherAppCity.innerHTML = name;
-      weatherAppTemp.innerHTML = temp + " °";
-      backgroundImg({ description, icon });
+      weatherAppTemp.innerHTML = Math.round(temp) + "°";
+      weatherAppDesc.innerHTML =
+        description.charAt(0).toUpperCase() + description.slice(1);
+      backgroundImg(
+        description,
+        icon,
+        weatherAppBg,
+        cloudyBg,
+        clearSky,
+        clearSkyNight,
+        cloudyNightBg
+      );
     })
     .catch((error) => console.log("il y a une erreur" + error));
 };
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  apiCall(search.value);
+  let ville = search.value;
+  apiCall(ville);
+  search.value = "";
 });
 
 apiCall("Lille");

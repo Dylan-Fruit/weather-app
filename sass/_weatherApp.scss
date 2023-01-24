@@ -1,0 +1,23 @@
+.container {
+  height: 100%;
+}
+
+.weather {
+  &-search {
+    &-form {
+      &-input {
+        background: none;
+        border: none;
+        outline: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  &-top-area {
+    display: flex;
+    flex-direction: column;
+  }
+}

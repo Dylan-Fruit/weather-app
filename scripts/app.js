@@ -16,6 +16,7 @@ const assets = {
   snowDay: "./assets/snowday.jpg",
   snowNight: "./assets/snownight.jpg",
 };
+const loupeSearch = document.querySelector(".fa-magnifying-glass");
 const cityInfo = document.querySelector(".weather-top-area-city");
 const tempInfo = document.querySelector(".weather-top-area-temp");
 const desc = document.querySelector(".weather-top-area-description");
@@ -73,6 +74,13 @@ const search = document.querySelector(".weather-search-form-input");
 const form = document.querySelector(".weather-search-form");
 
 form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let ville = search.value;
+  apiCall(ville);
+  search.value = "";
+});
+
+loupeSearch.addEventListener("click", (e) => {
   e.preventDefault();
   let ville = search.value;
   apiCall(ville);

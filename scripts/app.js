@@ -2,14 +2,20 @@ import backgroundImg from "./utils/backgroundImg.js";
 
 const apikey = "6df86b310800c41f880ef52cfa61a84e";
 const weatherAppBg = document.querySelector(".weather");
-const cloudyBg = "./assets/cloudybg.jpg";
-const clearSky = "./assets/clearsky.png";
-const clearSkyNight = "./assets/clearskynight.png";
-const cloudyNightBg = "./assets/cloudynight.png";
-const drizzle = "./assets/drizzle.png";
-const drizzleNight = "./assets/drizzlenight.png";
-const mistBg = "./assets/mistbg.png";
-const mistNight = "./assets/mistNight.png";
+const assets = {
+  cloudyBg: "./assets/cloudybg.jpg",
+  clearSky: "./assets/clearsky.png",
+  clearSkyNight: "./assets/clearskynight.png",
+  cloudyNightBg: "./assets/cloudynight.png",
+  drizzle: "./assets/drizzle.png",
+  drizzleNight: "./assets/drizzlenight.png",
+  mistBg: "./assets/mistbg.png",
+  mistNight: "./assets/mistnight.png",
+  thunderstorm: "./assets/thunderstorm.jpg",
+  thunderstormNight: "./assets/thunderstormnight.jpg",
+  snowDay: "./assets/snowday.jpg",
+  snowNight: "./assets/snownight.jpg",
+};
 const cityInfo = document.querySelector(".weather-top-area-city");
 const tempInfo = document.querySelector(".weather-top-area-temp");
 const desc = document.querySelector(".weather-top-area-description");
@@ -55,18 +61,7 @@ const apiCall = (city) => {
 
         // Appel de la fonction qui affiche les images de fond
 
-        backgroundImg(
-          description,
-          icon,
-          weatherAppBg,
-          cloudyBg,
-          clearSky,
-          clearSkyNight,
-          cloudyNightBg,
-          drizzle,
-          mistBg,
-          mistNight
-        );
+        backgroundImg(description, icon, assets);
       }
     )
     .catch((error) => console.log("il y a une erreur" + error));

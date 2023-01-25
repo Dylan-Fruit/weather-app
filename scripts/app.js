@@ -6,11 +6,19 @@ const cloudyBg = "./assets/cloudybg.jpg";
 const clearSky = "./assets/clearsky.png";
 const clearSkyNight = "./assets/clearskynight.png";
 const cloudyNightBg = "./assets/cloudynight.png";
-const weatherAppCity = document.querySelector(".weather-top-area-city");
-const weatherAppTemp = document.querySelector(".weather-top-area-temp");
-const weatherAppDesc = document.querySelector(".weather-top-area-description");
-const search = document.querySelector(".weather-search-form-input");
-const form = document.querySelector(".weather-search-form");
+const cityInfo = document.querySelector(".weather-top-area-city");
+const tempInfo = document.querySelector(".weather-top-area-temp");
+const desc = document.querySelector(".weather-top-area-description");
+const highestTemp = document.querySelector(
+  ".weather-top-area-lowMax-highestTemp"
+);
+const lowestTemp = document.querySelector(
+  ".weather-top-area-lowMax-lowestTemp"
+);
+const pressureInfo = document.querySelector(".weather-mid-area-pressure-text");
+const feelsLike = document.querySelector(".weather-mid-area-feelsLike-text");
+const humidityInfo = document.querySelector(".weather-mid-area-humidity-text");
+const windInfo = document.querySelector(".weather-mid-area-wind-text");
 
 weatherAppBg.style.backgroundSize = "cover";
 
@@ -21,23 +29,46 @@ const apiCall = (city) => {
 
   fetch(url)
     .then((res) => res.json())
-    .then(({ name, main: { temp }, weather: [{ description, icon }] }) => {
-      weatherAppCity.innerHTML = name;
-      weatherAppTemp.innerHTML = Math.round(temp) + "°";
-      weatherAppDesc.innerHTML =
-        description.charAt(0).toUpperCase() + description.slice(1);
-      backgroundImg(
-        description,
-        icon,
-        weatherAppBg,
-        cloudyBg,
-        clearSky,
-        clearSkyNight,
-        cloudyNightBg
-      );
-    })
+    .then(
+      ({
+        name,
+        main: { temp, temp_min, temp_max, feels_like, humidity, pressure },
+        weather: [{ description, icon }],
+        wind: { speed },
+      }) => {
+        // Manipulation du DOM pour afficher les données reçues
+
+        cityInfo.innerHTML = name;
+        tempInfo.innerHTML = Math.round(temp) + "°";
+        desc.innerHTML =
+          description.charAt(0).toUpperCase() + description.slice(1);
+        highestTemp.innerHTML = "Max: " + Math.round(temp_max) + " °";
+        lowestTemp.innerHTML = "Min: " + Math.round(temp_min) + " °";
+        pressureInfo.innerHTML = `<p>${pressure + " hPa"}</p>`;
+        humidityInfo.innerHTML = `<p>${humidity + " %"}</p>`;
+        feelsLike.innerHTML = `<p>${Math.round(feels_like) + " °"}</p>`;
+        windInfo.innerHTML = `<p>${speed + " km/h"}</p>`;
+
+        // Appel de la fonction qui affiche les images de fond
+
+        backgroundImg(
+          description,
+          icon,
+          weatherAppBg,
+          cloudyBg,
+          clearSky,
+          clearSkyNight,
+          cloudyNightBg
+        );
+      }
+    )
     .catch((error) => console.log("il y a une erreur" + error));
 };
+
+// Écouteur d'évènement pour la soumission de la recherche via un form
+
+const search = document.querySelector(".weather-search-form-input");
+const form = document.querySelector(".weather-search-form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();

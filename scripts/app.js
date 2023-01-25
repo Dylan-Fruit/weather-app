@@ -6,6 +6,10 @@ const cloudyBg = "./assets/cloudybg.jpg";
 const clearSky = "./assets/clearsky.png";
 const clearSkyNight = "./assets/clearskynight.png";
 const cloudyNightBg = "./assets/cloudynight.png";
+const drizzle = "./assets/drizzle.png";
+const drizzleNight = "./assets/drizzlenight.png";
+const mistBg = "./assets/mistbg.png";
+const mistNight = "./assets/mistNight.png";
 const cityInfo = document.querySelector(".weather-top-area-city");
 const tempInfo = document.querySelector(".weather-top-area-temp");
 const desc = document.querySelector(".weather-top-area-description");
@@ -58,7 +62,10 @@ const apiCall = (city) => {
           cloudyBg,
           clearSky,
           clearSkyNight,
-          cloudyNightBg
+          cloudyNightBg,
+          drizzle,
+          mistBg,
+          mistNight
         );
       }
     )

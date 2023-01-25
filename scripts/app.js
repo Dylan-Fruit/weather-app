@@ -13,8 +13,8 @@ const assets = {
   mistNight: "./assets/mistnight.png",
   thunderstorm: "./assets/thunderstorm.jpg",
   thunderstormNight: "./assets/thunderstormnight.jpg",
-  snowDay: "./assets/snowday.jpg",
-  snowNight: "./assets/snownight.jpg",
+  snowDay: "./assets/snowday.png",
+  snowNight: "./assets/snownight.png",
 };
 const loupeSearch = document.querySelector(".fa-magnifying-glass");
 const cityInfo = document.querySelector(".weather-top-area-city");

@@ -2,15 +2,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-height: 100vh;
   font-family: "Open Sans", sans-serif;
 }
 
+.weather {
+  padding-bottom: 31.9vh;
+}
 .weather-search {
-  padding-top: 30px;
+  padding-top: 3vh;
 }
 .weather-search-form {
-  margin: 0 40px;
+  margin: 0 4vw;
 }
 .weather-search-form-input {
   background: white;
@@ -20,7 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px 10px;
+  padding: 0.5vh 1vw;
   text-align: center;
   border-radius: 4px 0 0 4px;
 }
@@ -37,7 +39,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 40px 0 90px 0;
+  margin: 4vh 0 9vh 0;
 }
 .weather-top-area-city {
   font-size: 40px;
@@ -54,8 +56,8 @@
 }
 .weather-top-area-lowMax {
   display: flex;
-  gap: 20px;
-  margin-top: 10px;
+  gap: 2vw;
+  margin-top: 1vw;
 }
 .weather-top-area-lowMax-highestTemp, .weather-top-area-lowMax-lowestTemp {
   color: #fff;
@@ -66,7 +68,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 25px 0 117px 0;
+  padding: 2.5vh 0 11.7vh 0;
 }
 .weather-mid-area-pressure, .weather-mid-area-feelsLike, .weather-mid-area-humidity, .weather-mid-area-wind {
   color: #fff;
@@ -82,18 +84,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 3vh;
 }
 
 .fa-magnifying-glass {
   position: absolute;
-  top: 30px;
-  right: 32px;
+  top: 3vh;
+  right: 3vw;
   color: white;
   background: rgba(255, 255, 255, 0.16);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(12.5px);
-  padding: 6.2px;
+  padding: 0.62vh;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
 }

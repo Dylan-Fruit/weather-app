@@ -4,17 +4,19 @@ const apikey = "6df86b310800c41f880ef52cfa61a84e";
 const weatherAppBg = document.querySelector(".weather");
 const assets = {
   cloudyBg: "./assets/cloudybg.jpg",
-  clearSky: "./assets/clearsky.png",
-  clearSkyNight: "./assets/clearskynight.png",
-  cloudyNightBg: "./assets/cloudynight.png",
-  drizzle: "./assets/drizzle.png",
-  drizzleNight: "./assets/drizzlenight.png",
-  mistBg: "./assets/mistbg.png",
-  mistNight: "./assets/mistnight.png",
+  clearSky: "./assets/clearsky.jpg",
+  clearSkyNight: "./assets/clearskynight.jpg",
+  cloudyNightBg: "./assets/cloudynight.jpg",
+  drizzle: "./assets/drizzle.jpg",
+  drizzleNight: "./assets/drizzlenight.jpg",
+  showerRain: "./assets/showerrain.jpg",
+  showerRainNight: "./assets/showerrainnight.jpg",
+  mistBg: "./assets/mistbg.jpg",
+  mistNight: "./assets/mistnight.jpg",
   thunderstorm: "./assets/thunderstorm.jpg",
   thunderstormNight: "./assets/thunderstormnight.jpg",
-  snowDay: "./assets/snowday.png",
-  snowNight: "./assets/snownight.png",
+  snowDay: "./assets/snowday.jpg",
+  snowNight: "./assets/snownight.jpg",
 };
 const loupeSearch = document.querySelector(".fa-magnifying-glass");
 const cityInfo = document.querySelector(".weather-top-area-city");
@@ -30,8 +32,6 @@ const pressureInfo = document.querySelector(".weather-mid-area-pressure-text");
 const feelsLike = document.querySelector(".weather-mid-area-feelsLike-text");
 const humidityInfo = document.querySelector(".weather-mid-area-humidity-text");
 const windInfo = document.querySelector(".weather-mid-area-wind-text");
-
-weatherAppBg.style.backgroundSize = "cover";
 
 // fonction BackgroundImg avec un switch qui change le background en fonction du temps et du jour ou de la nuit
 
@@ -86,5 +86,7 @@ loupeSearch.addEventListener("click", (e) => {
   apiCall(ville);
   search.value = "";
 });
+
+// Appel de la fonction apiCall avec comme paramètre par défaut 'Lille'
 
 apiCall("Lille");

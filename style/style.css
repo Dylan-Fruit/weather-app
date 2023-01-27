@@ -5,9 +5,6 @@
   font-family: "Open Sans", sans-serif;
 }
 
-.weather {
-  padding-bottom: 31.9vh;
-}
 .weather-search {
   padding-top: 3vh;
 }
@@ -98,6 +95,15 @@
   padding: 0.62vh;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .weather {
+    padding-bottom: 31.9vh;
+  }
+  .weather-search-form-input {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

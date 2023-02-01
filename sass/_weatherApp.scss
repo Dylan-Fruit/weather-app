@@ -20,6 +20,9 @@
           color: #000;
           opacity: 0.3;
         }
+        ::-webkit-search-cancel-button {
+          display: none;
+        }
       }
     }
     .loupe {

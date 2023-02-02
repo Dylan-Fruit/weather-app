@@ -29,6 +29,9 @@
   color: #000;
   opacity: 0.3;
 }
+.weather-search-form-input::-webkit-search-cancel-button {
+  display: none;
+}
 .weather-search .loupe {
   position: absolute;
   top: 3vh;
